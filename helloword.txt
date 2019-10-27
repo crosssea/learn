@@ -56,4 +56,68 @@ git diff HEAD -- filename 查看工作区和版本库的文件的版本区别
 Git同样告诉我们，用命令git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新放回工作区：
 
 git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
-现在你有两个选择，一是确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit：
+现在你有两个选择，一是确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit：	
+
+
+ssh-keygen -t rsa -C "youremail@example.com"  创建rsa
+
+要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
+
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
+ git clone git@github.com:michaelliao/gitskills.git
+Cloning into 'gitskills'...
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 3
+Receiving objects: 100% (3/3), done.
+来克隆远程仓库
+
+# 分支管理
+首先，我们创建dev分支，然后切换到dev分支：
+
+$ git checkout -b dev
+Switched to a new branch 'dev'
+git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
+
+$ git branch dev
+$ git checkout dev
+Switched to branch 'dev'
+然后，用git branch命令查看当前分支：
+
+$ git branch
+* dev
+  master
+git branch命令会列出所有分支，当前分支前面会标一个*号。
+
+然后，我们就可以在dev分支上正常提交，比如对readme.txt做个修改，加上一行：
+
+Creating a new branch is quick.
+然后提交：
+
+$ git add readme.txt 
+$ git commit -m "branch test"
+[dev b17d20e] branch test
+ 1 file changed, 1 insertion(+)
+现在，dev分支的工作完成，我们就可以切换回master分支：
+
+$ git checkout master
+Switched to branch 'master'
+
+查看分支：git branch
+
+创建分支：git branch <name>
+
+切换分支：git checkout <name>或者git switch <name>
+
+创建+切换分支：git checkout -b <name>或者git switch -c <name>
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
+当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
+
+解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。
+
+用git log --graph命令可以看到分支合并图。
