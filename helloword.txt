@@ -8,3 +8,13 @@ git add filename 可以将filename文件名的文件加入
 3.提交
 git commit -m "自己的说明文字"
 可以实现提交
+git status 可以查看当前的状态，是否有更改
+git diff filename 可以查看不同
+git log可以显示所有日志信息
+git log pretty=oneline可以一条记录一行
+当前所在版本是HEAD
+git reset --hard HEAD^要退回上一个版本
+HEAD^ 后面的^数量代表往回退几个版本，当要退回的太多的时候，可以用HEAD~100
+后面的数字表示回退多少
+但是reset有风险的，只要窗口未关，可找提交id的前几位
+git reset --hard id  可以转到这个id的版本情况
