@@ -1,2 +1,10 @@
 hello world
 ni hao github
+
+1.进入文件夹
+git init可以初始化一个仓库
+2.对于文件夹的文件
+git add filename 可以将filename文件名的文件加入
+3.提交
+git commit -m "自己的说明文字"
+可以实现提交
